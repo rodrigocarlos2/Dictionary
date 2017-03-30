@@ -1,0 +1,2 @@
+class Synonymou < ApplicationRecord
+end

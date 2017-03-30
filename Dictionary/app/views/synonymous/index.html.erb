@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Synonymous</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word 1</th>
+      <th>Word 2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @synonymous.each do |synonymou| %>
+      <tr>
+        <% w1 = Word.find_by_id(synonymou.word_1_id) %>
+        <td><%= w1.text %></td>
+        <% w2 = Word.find_by_id(synonymou.word_2_id) %>
+        <td><%= w2.text %></td>
+        <td><%= link_to 'Show', synonymou %></td>
+        <td><%= link_to 'Edit', edit_synonymou_path(synonymou) %></td>
+        <td><%= link_to 'Destroy', synonymou, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Synonymou', new_synonymou_path %>

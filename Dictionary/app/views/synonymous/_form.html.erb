@@ -1,0 +1,25 @@
+<%= form_for(synonymou) do |f| %>
+  <% if synonymou.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(synonymou.errors.count, "error") %> prohibited this synonymou from being saved:</h2>
+
+      <ul>
+      <% synonymou.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.collection_select(:word_1_id, Word.all, :id, :text, {}, class: 'form-control') %>
+  </div>
+
+  <div>
+    <%= f.collection_select(:word_2_id, Word.all, :id, :text, {}, class: 'form-control') %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
