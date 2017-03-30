@@ -1,24 +1,20 @@
-# README
+# Dictionary
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+This application is used for solving a problem of meanings word.
 
 * Ruby version
 
+Ruby 2.3.3
+
 * System dependencies
 
-* Configuration
+See Gemfile
 
-* Database creation
+* Database
 
-* Database initialization
+Sqlite
 
-* How to run the test suite
+* Services
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Insert
+Search
