@@ -27,7 +27,7 @@
       <div class='fields'>
         <div class='twelve wide field'>
             
-            <%= link_to_add_association('Add Meaning', f, :meanings, 'data-association-insertion-node' => "#list-meanings ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
+            <%= link_to_add_association('Add Meaning', f, :meanings, 'data-association-insertion-node' => "#list-meanings ol", 'data-association-insertion-method' => "append", :class => 'small ui button') %>
 
             <fieldset id="list-meanings">
 
@@ -51,7 +51,7 @@
       <div class='fields'>
         <div class='twelve wide field'>
             
-            <%= link_to_add_association('Add Synonymou', f, :synonymous, 'data-association-insertion-node' => "#list-synonymous ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
+            <%= link_to_add_association('Add Synonymou', f, :synonymous, 'data-association-insertion-node' => "#list-synonymous ol", 'data-association-insertion-method' => "append", :class => 'small ui button') %>
 
             <fieldset id="list-synonymous">
 
@@ -73,7 +73,8 @@
     <br>
 
     <div class="actions">
-      <%= f.submit class:'ui primary button' %>
+      <%= f.submit class:'ui black button' %>
+      <%= link_to 'Back', words_path, class:'ui black button' %>
     </div>
 
   <% end %>
