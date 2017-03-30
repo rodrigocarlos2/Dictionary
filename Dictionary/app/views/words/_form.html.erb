@@ -16,6 +16,26 @@
     <%= f.text_area :text %>
   </div>
 
+  <div>
+  
+    <%= link_to_add_association('Add Meaning', f, :meanings, 'data-association-insertion-node' => "#list-meanings ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
+
+    <fieldset id="list-meanings">
+
+      <ol>
+
+        <%= f.fields_for :meanings do |meaning| %>
+
+          <%= render partial: "meaning_fields", locals: {f: meaning} %>
+
+        <% end %>
+
+      </ol>
+
+    </fieldset>
+
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -15,7 +15,8 @@
     <% @meanings.each do |meaning| %>
       <tr>
         <td><%= meaning.text %></td>
-        <td><%= meaning.word %></td>
+        <% w = Word.find_by_id(meaning.word_id) %>
+        <td><%= w.text %></td>
         <td><%= link_to 'Show', meaning %></td>
         <td><%= link_to 'Edit', edit_meaning_path(meaning) %></td>
         <td><%= link_to 'Destroy', meaning, method: :delete, data: { confirm: 'Are you sure?' } %></td>

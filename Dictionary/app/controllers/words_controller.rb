@@ -24,7 +24,9 @@ class WordsController < ApplicationController
   # POST /words
   # POST /words.json
   def create
+
     @word = Word.new(word_params)
+    word_params[:meanings_attributes][:word_id] = @word.id
 
     respond_to do |format|
       if @word.save
@@ -54,6 +56,17 @@ class WordsController < ApplicationController
   # DELETE /words/1
   # DELETE /words/1.json
   def destroy
+
+    @synonymous = Synonymou.all
+
+    @synonymous.each do |synonymou|
+      if synonymou.word_1_id==@word.id
+        synonymou.destroy
+      elsif synonymou.word_2_id==@word.id
+        synonymou.destroy
+      end
+    end
+
     @word.destroy
     respond_to do |format|
       format.html { redirect_to words_url, notice: 'Word was successfully destroyed.' }
@@ -69,6 +82,6 @@ class WordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_params
-      params.require(:word).permit(:text)
+      params.require(:word).permit(:text, :meanings_attributes => [:id, :text, :word_id, :_destroy])
     end
 end
