@@ -1,65 +1,81 @@
-<%= form_for(word) do |f| %>
-  <% if word.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(word.errors.count, "error") %> prohibited this word from being saved:</h2>
 
-      <ul>
-      <% word.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="ui form">
+
+  <%= form_for(word) do |f| %>
+    <% if word.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(word.errors.count, "error") %> prohibited this word from being saved:</h2>
+
+        <ul>
+        <% word.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <div class='fields'>
+        <div class='twelve wide field'>
+          <%= f.label :text %>
+          <%= f.text_area :text %>
+        </div>
+      </div>
     </div>
+
+    <div class="field">
+      <div class='fields'>
+        <div class='twelve wide field'>
+            
+            <%= link_to_add_association('Add Meaning', f, :meanings, 'data-association-insertion-node' => "#list-meanings ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
+
+            <fieldset id="list-meanings">
+
+              <ol>
+
+                <%= f.fields_for :meanings do |meaning| %>
+
+                  <%= render partial: "meaning_fields", locals: {f: meaning} %>
+
+                <% end %>
+
+              </ol>
+
+            </fieldset>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class='fields'>
+        <div class='twelve wide field'>
+            
+            <%= link_to_add_association('Add Synonymou', f, :synonymous, 'data-association-insertion-node' => "#list-synonymous ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
+
+            <fieldset id="list-synonymous">
+
+              <ol>
+
+                <%= f.fields_for :synonymous do |synonymou| %>
+
+                  <%= render partial: "synonymou_fields", locals: {f: synonymou} %>
+
+                <% end %>
+
+              </ol>
+
+            </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="actions">
+      <%= f.submit class:'ui primary button' %>
+    </div>
+
   <% end %>
 
-  <div class="field">
-    <%= f.label :text %>
-    <%= f.text_area :text %>
-  </div>
-
-  <div>
-  
-    <%= link_to_add_association('Add Meaning', f, :meanings, 'data-association-insertion-node' => "#list-meanings ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
-
-    <fieldset id="list-meanings">
-
-      <ol>
-
-        <%= f.fields_for :meanings do |meaning| %>
-
-          <%= render partial: "meaning_fields", locals: {f: meaning} %>
-
-        <% end %>
-
-      </ol>
-
-    </fieldset>
-
-  </div>
-
-  <div>
-  
-    <%= link_to_add_association('Add Synonymou', f, :synonymous, 'data-association-insertion-node' => "#list-synonymous ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
-
-    <fieldset id="list-synonymous">
-
-      <ol>
-
-        <%= f.fields_for :synonymous do |synonymou| %>
-
-          <%= render partial: "synonymou_fields", locals: {f: synonymou} %>
-
-        <% end %>
-
-      </ol>
-
-    </fieldset>
-
-  </div>
-
-  <br>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-<% end %>
+</div>

@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @word.text %>
-</p>
+<div class='ui padded center aligned teal  segment show'>
 
-<%= link_to 'Edit', edit_word_path(@word) %> |
-<%= link_to 'Back', words_path %>
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Text:</strong>
+	  <%= @word.text %>
+	</p>
+
+	<%= link_to 'Edit', edit_word_path(@word) %> |
+	<%= link_to 'Back', words_path %>
+
+</div>
