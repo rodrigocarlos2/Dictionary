@@ -24,6 +24,7 @@ class SynonymousController < ApplicationController
   # POST /synonymous
   # POST /synonymous.json
   def create
+
     @synonymou = Synonymou.new(synonymou_params)
 
     respond_to do |format|
