@@ -1,17 +1,20 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Meanings</h1>
+<br>
 
-<table>
+<h1 class"ui header">Meanings</h1>
+
+  <table class='ui blue table'>
   <thead>
     <tr>
-      <th>Text</th>
+        <th>Text</th>
       <th>Word</th>
+        <th colspan="3"></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @meanings.each do |meaning| %>
       <tr>
         <td><%= meaning.text %></td>
@@ -22,9 +25,7 @@
         <td><%= link_to 'Destroy', meaning, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
   </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Meaning', new_meaning_path %>
+  </table>
