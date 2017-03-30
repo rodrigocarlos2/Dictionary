@@ -1,0 +1,13 @@
+
+<li class="control-group nested-fields">
+
+  <div class="controls">
+    <%= f.label "Word 2" %><br>
+    <%= f.collection_select(:word_2_id, Word.all, :id, :text, {}, class: 'form-control') %>
+  </div>
+
+  <div class="controls">
+    <%= link_to_remove_association "Remover", f %>
+  </div>
+
+</li>

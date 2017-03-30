@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20170330121127) do
   create_table "synonymous", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "word_1_id"
+    t.integer  "word_id"
     t.integer  "word_2_id"
-    t.index ["word_1_id"], name: "index_synonymous_on_word_1_id"
     t.index ["word_2_id"], name: "index_synonymous_on_word_2_id"
+    t.index ["word_id"], name: "index_synonymous_on_word_id"
   end
 
   create_table "words", force: :cascade do |t|

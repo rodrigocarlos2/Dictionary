@@ -28,6 +28,10 @@ class WordsController < ApplicationController
     @word = Word.new(word_params)
     word_params[:meanings_attributes][:word_id] = @word.id
 
+    if word_params[:synonymous_attributes]!=nil
+      word_params[:synonymous_attributes][:word_id] = @word.id
+    end
+
     respond_to do |format|
       if @word.save
         format.html { redirect_to @word, notice: 'Word was successfully created.' }
@@ -60,7 +64,7 @@ class WordsController < ApplicationController
     @synonymous = Synonymou.all
 
     @synonymous.each do |synonymou|
-      if synonymou.word_1_id==@word.id
+      if synonymou.word_id==@word.id
         synonymou.destroy
       elsif synonymou.word_2_id==@word.id
         synonymou.destroy
@@ -82,6 +86,6 @@ class WordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_params
-      params.require(:word).permit(:text, :meanings_attributes => [:id, :text, :word_id, :_destroy])
+      params.require(:word).permit(:text, :meanings_attributes => [:id, :text, :word_id, :_destroy], :synonymous_attributes => [:id, :word_2_id, :_destroy])
     end
 end

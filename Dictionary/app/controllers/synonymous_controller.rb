@@ -70,6 +70,6 @@ class SynonymousController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def synonymou_params
-      params.require(:synonymou).permit(:word_1_id, :word_2_id)
+      params.require(:synonymou).permit(:word_id, :word_2_id)
     end
 end

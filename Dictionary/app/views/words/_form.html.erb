@@ -36,6 +36,26 @@
 
   </div>
 
+  <div>
+  
+    <%= link_to_add_association('Add Synonymou', f, :synonymous, 'data-association-insertion-node' => "#list-synonymous ol", 'data-association-insertion-method' => "append", :class => 'btn btn-primary') %>
+
+    <fieldset id="list-synonymous">
+
+      <ol>
+
+        <%= f.fields_for :synonymous do |synonymou| %>
+
+          <%= render partial: "synonymou_fields", locals: {f: synonymou} %>
+
+        <% end %>
+
+      </ol>
+
+    </fieldset>
+
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

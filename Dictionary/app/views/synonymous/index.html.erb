@@ -14,7 +14,7 @@
   <tbody>
     <% @synonymous.each do |synonymou| %>
       <tr>
-        <% w1 = Word.find_by_id(synonymou.word_1_id) %>
+        <% w1 = Word.find_by_id(synonymou.word_id) %>
         <td><%= w1.text %></td>
         <% w2 = Word.find_by_id(synonymou.word_2_id) %>
         <td><%= w2.text %></td>
