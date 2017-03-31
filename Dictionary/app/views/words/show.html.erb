@@ -8,6 +8,38 @@
 	  <%= @word.text %>
 	</p>
 
+	<p>
+	  Meanings
+	</p>
+
+	<% @meanings.each do |meaning| %>
+
+		<p>
+	  		<%= meaning.text %>
+		</p>
+
+	<% end %>
+
+	<p>
+	  Synonymous
+	</p>
+
+	<% @synonymous.each do |synonymou| %>
+
+		<% if synonymou.word_id==@word.id %>
+			<% word_temp = Word.find_by_id(synonymou.word_2_id) %>
+			<p>
+		  		<%= word_temp.text %>
+			</p>
+		<% elsif synonymou.word_2_id==@word.id %>
+			<% word_temp = Word.find_by_id(synonymou.word_id) %>
+			<p>
+		  		<%= word_temp.text %>
+			</p>
+		<% end %>
+
+	<% end %>	
+
 	<%= link_to 'Edit', edit_word_path(@word), class:'ui black button' %> |
 	<%= link_to 'Back', words_path, class:'ui black button' %>
 

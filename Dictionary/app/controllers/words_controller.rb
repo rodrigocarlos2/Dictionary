@@ -11,6 +11,8 @@ class WordsController < ApplicationController
   # GET /words/1
   # GET /words/1.json
   def show
+    @meanings = Meaning.where(word_id: @word.id)
+    @synonymous = Synonymou.all
   end
 
   # GET /words/new
