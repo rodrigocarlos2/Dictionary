@@ -5,11 +5,10 @@
 
   <div>
     <%= search_form_for @q do |f| %>
-            <div class="ui icon action input">
+            <div class="ui icon input">
               <i class="search icon"></i>
               <%= f.search_field :text_cont, placeholder: 'Text' do %>
               <% end %>
-              <%= f.submit 'Search', class:'ui blue submit button' %>
             </div>
     <% end %>
   </div>
