@@ -29,12 +29,12 @@
 		<% if synonymou.word_id==@word.id %>
 			<% word_temp = Word.find_by_id(synonymou.word_2_id) %>
 			<p>
-		  		<%= word_temp.text %>
+				<%= link_to word_temp.text, word_path(word_temp) %>
 			</p>
 		<% elsif synonymou.word_2_id==@word.id %>
 			<% word_temp = Word.find_by_id(synonymou.word_id) %>
 			<p>
-		  		<%= word_temp.text %>
+				<%= link_to word_temp.text, word_path(word_temp) %>
 			</p>
 		<% end %>
 
