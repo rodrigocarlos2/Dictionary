@@ -6,6 +6,8 @@ class WordsController < ApplicationController
   def index
     @q = Word.ransack(params[:q])
     @words = @q.result(distinct: true)
+
+    @words = @words.paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /words/1
