@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330121127) do
+ActiveRecord::Schema.define(version: 20170403110513) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "meanings", force: :cascade do |t|
     t.text     "text"
     t.integer  "word_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_meanings_on_category_id"
     t.index ["word_id"], name: "index_meanings_on_word_id"
   end
 

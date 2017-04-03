@@ -69,6 +69,6 @@ class MeaningsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meaning_params
-      params.require(:meaning).permit(:text, :word_id)
+      params.require(:meaning).permit(:text, :word_id, :category_id)
     end
 end

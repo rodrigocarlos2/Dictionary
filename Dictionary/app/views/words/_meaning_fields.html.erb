@@ -6,6 +6,11 @@
     <%= f.text_field :text %>
   </div>
 
+  <div class="controls">
+    <%= f.label "Category" %><br>
+    <%= f.collection_select(:category_id, Category.all, :id, :text, {}, class:'ui floating labeled dropdown button') %>
+  </div>
+
   <br>
   <div class="controls">
     <%= link_to_remove_association "Remove", f, :class => 'small ui button' %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   #resources :synonymous
   #resources :meanings
   resources :words
